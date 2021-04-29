@@ -41,18 +41,3 @@ app.post('/PublishMessage',(req,res,next) => {
 app.listen(process.env.PUB_PORT || 3000, (err) => {
     console.log(`Server listening at POST ${process.env.PUB_PORT || 3000}`);
 });
-
-
-// client.on('error', function (error) {
-//     console.log(error);
-// });
-
-// client.on('message', function (topic, message) {
-//     console.log('Received message:', topic, message.toString());
-// });
-
-// subscribe to topic 'my/test/topic'
-//client.subscribe('my/test/topic');
-
-// publish message 'Hello' to topic 'my/test/topic'
-// client.publish('my/test/topic', 'Hello');
