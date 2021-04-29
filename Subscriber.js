@@ -36,6 +36,16 @@ client.on('message', function (topic, message) {
        }) 
       .then(message => console.log(message.sid)) 
       .done();
+
+
+      Twilio_Client.messages 
+      .create({ 
+         body: 'Test', 
+         from: process.env.TWILIO_WA_SENDER ,       
+         to: process.env.TWILIO_WA_RECEIVER 
+       }) 
+      .then(message => console.log(message.sid)) 
+      .done();
 });
 
 // subscribe to topic 'my/test/topic'
