@@ -30,7 +30,7 @@ client.on('message', async function (topic, message) {
 	console.log('Received message:', topic, message.toString());
 	Twilio_Client.messages
 		.create({
-			body: 'Message added',
+			body: `New message published: ${message.toString()}`,
 			messagingServiceSid: process.env.TWILIO_messagingServiceSid,
 			to: process.env.TWILIO_USER,
 		})
@@ -39,7 +39,7 @@ client.on('message', async function (topic, message) {
 
 	Twilio_Client.messages
 		.create({
-			body: 'Test',
+			body: `New message published: ${message.toString()}`,
 			from: process.env.TWILIO_WA_SENDER,
 			to: process.env.TWILIO_WA_RECEIVER,
 		})
@@ -61,10 +61,9 @@ client.on('message', async function (topic, message) {
 	await transporter
 		.sendMail({
 			from: process.env.EMAIL_ID, // sender address
-			to: 'reviye3047@laraskey.com', // list of receivers
-			subject: 'Hello ✔', // Subject line
-			text: 'Hello world?', // plain text body
-			html: '<b>Hello world?</b>', // html body
+			to: 'sdave.tech@gmail.com', // list of receivers
+			subject: 'New message received from Publisher', // Subject line
+			html: `<h5>New message published: <b>${message.toString()}</b></h5>`, // plain text body
 		})
 		.then(() => console.log('Email Sent'));
 });
