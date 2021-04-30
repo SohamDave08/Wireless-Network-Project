@@ -63,7 +63,7 @@ client.on('message', async function (topic, message) {
 			from: process.env.EMAIL_ID, // sender address
 			to: 'sdave.tech@gmail.com', // list of receivers
 			subject: 'New message received from Publisher', // Subject line
-			html: `<h5>New message published: <b>${message.toString()}</b></h5>`, // plain text body
+			html: `<h3>New message published: <b>${message.toString()}</b></h3>`, // plain text body
 		})
 		.then(() => console.log('Email Sent'));
 });
